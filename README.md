@@ -1,70 +1,105 @@
+Sure! Here's the full `README.md` file content for your **HDM Finance App** project:
+
+---
+
+```markdown
 # HDM Finance App
 
-**HDM Finance App** is a simple and lightweight web application designed to help users **record and track their financial transactions**, with a particular focus on **expense management**.
+**HDM Finance App** is a simple finance tracking application focused on recording your daily expenses. It provides an easy-to-use interface to add new transactions and view your transaction history.
 
-## ✨ Features
+Unlike traditional finance apps, this application does not use a database. Instead, it integrates directly with **Google Forms** and **Google Spreadsheets**, making setup and data storage free and cloud-based.
 
-* **Add Transaction**: Easily record a new financial transaction.
-* **Transaction History**: View a list of previously recorded transactions.
+---
 
-## 🧾 Data Structure
+## 🚀 Features
 
-Currently, the app supports the following fields through the Google Form and Spreadsheet:
+- ✅ Add new expense transactions
+- 📄 View transaction history
+- ☁️ No database needed – uses Google Forms and Google Sheets as backend
 
-* **User**: The person making the transaction.
-* **Jumlah** (Amount): The amount of money involved in the transaction.
-* **Kategori** (Category): The category of the transaction (e.g., Food, Transport, etc.).
-* **Keterangan** (Description): A brief note or description of the transaction.
+---
 
-## 🧠 How It Works
+## 📋 Current Form Fields
 
-Unlike typical finance apps that rely on a database, HDM Finance App leverages the power of **Google Forms** and **Google Spreadsheets** to store and retrieve data. This approach makes the app lightweight and easy to deploy without backend infrastructure.
+The current implementation expects the following columns from the linked Google Form or Spreadsheet:
+
+- **User** – the person recording the transaction  
+- **Jumlah** – the amount spent  
+- **Kategori** – the spending category  
+- **Keterangan** – a short description or note
+
+Ensure your Google Form and Spreadsheet match this structure to avoid data issues.
 
 ---
 
 ## ⚙️ Configuration
 
-To get started, follow these steps to set up your configuration:
+Before running the app, you need to configure two endpoints by creating a file called `config.tsx` inside the `/src` folder with the following content:
 
-1. **Create a configuration file:**
+```ts
+export const googleFormUrl = 'https://docs.google.com/forms/d/e/***';  
+export const spreadsheetsApi = 'https://script.google.com/macros/s/***';
+```
 
-   Inside your project's `src` folder, create a file named `config.tsx` with the following structure:
+- **`googleFormUrl`**: Embed URL from your Google Form  
+- **`spreadsheetsApi`**: Web app URL from your Google Apps Script deployment
 
-   ```tsx
-   export const googleFormUrl = 'https://docs.google.com/forms/d/e/***';
-   export const spreadsheetsApi = 'https://script.google.com/macros/s/***';
-   ```
+---
 
-2. **Set up Google Form:**
+## 📝 Creating Google Form
 
-   * Go to [Google Forms](https://docs.google.com/forms/u/0/?hl=id).
-   * Create a form to collect transaction data using the fields: User, Jumlah, Kategori, Keterangan.
-   * Click on the **Send** button, choose the embed (`<>`) option, and copy the **embed HTML URL**.
-   * Use this URL as the value for `googleFormUrl` in your `config.tsx`.
+1. Go to [Google Forms](https://docs.google.com/forms/u/0/?hl=id)
+2. Create a form with fields: **User**, **Jumlah**, **Kategori**, **Keterangan**
+3. Click **Send → <> Embed HTML** to get the `googleFormUrl`
 
-3. **Set up Google Spreadsheet API:**
+---
 
-   * After linking your Google Form to a Google Spreadsheet (via **Responses → Create Spreadsheet**), open the spreadsheet.
-   * Go to **Extensions → Apps Script**.
-   * Write a script to fetch the spreadsheet data and deploy it as a **Web API**.
-   * Copy the deployed web app URL and use it as the value for `spreadsheetsApi` in your `config.tsx`.
+## 📡 Example Apps Script
+
+To retrieve submitted form data from Google Spreadsheet, use the following Apps Script:
+
+```javascript
+function doGet(e) {
+  var sheetName = 'FormResponse1'; // Or use e.parameters.sheetName for dynamic access
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+  var data = sheet.getDataRange().getValues();
+  var jsonData = JSON.stringify(data);
+  return ContentService.createTextOutput(jsonData).setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+### 📌 How to Deploy:
+
+1. Open the **Google Spreadsheet** linked to your form
+2. Go to **Extensions → Apps Script**
+3. Paste the script above
+4. Click **Deploy → Manage deployments → New deployment**
+5. Choose **Web App**, and set access to "Anyone"
+6. Copy the deployment URL and use it as `spreadsheetsApi`
 
 ---
 
 ## 📦 Tech Stack
 
-* **React + TypeScript**
-* **Google Forms** (for data input)
-* **Google Spreadsheets + Apps Script** (for data storage and retrieval)
+- React + TypeScript  
+- Tailwind CSS  
+- Google Forms + Google Sheets + Apps Script  
 
 ---
 
-## 📝 License
+## 🧪 Future Enhancements
 
-This project is open-source and available under the [MIT License](LICENSE).
+- User login
+- Charts & analytics
+- Export to Excel / PDF
 
 ---
 
-## 🛎️ Feedback
+## 📄 License
 
-If you encounter any issues or have suggestions for improvement, feel free to open an issue or contribute via pull requests.
+This project is open-source and free to use under the MIT License.
+```
+
+---
+
+Let me know if you'd like me to generate the actual `.md` file for download or commit it to your GitHub repo.
