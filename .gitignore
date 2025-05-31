@@ -60,4 +60,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+config.tsx
 >>>>>>> fbf8d7e5bafe56b11e68057428b85d37ebc62e7c

@@ -28,7 +28,7 @@ export function ConvertToObjects(data: (string | number)[][]): RowObject[] {
 
 export const GetTotal = (data:any) => {
     let total = 0;
-    data.forEach((row:any) => total+= row['Jumlah']);
+    data?.forEach((row:any) => total+= row['Jumlah']);
     return total;
 }
 

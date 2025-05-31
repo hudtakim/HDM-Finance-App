@@ -39,23 +39,24 @@ function History({setCurrentPage}: HistoryProps) {
     const fetchData = async () => {
       try {
         setLoading(true);
-        if(filters && mode + 1 > 0){
+        if(filters.startDate && filters.endDate && mode + 1 > 0){
+          console.log('Fetch run');
           const response = await fetch(spreadsheetsApi);
 
-        if (!response.ok) throw new Error("Network response was not ok");
-        const json = await response.json();
-        const jsonObj = ConvertToObjects(json.data || json); // Adjust based on structure
-        const filteredJson = FilterRecords(jsonObj, filters);
-        const {userList, kategoriList} = GetDropdownList(filteredJson);
-        setUserListD(userList);
-        setKategoriListD(kategoriList);
-        if(mode === 1){
-          const {timestampList, jumlahList} = GetDataForBarChart(filteredJson);
-          setTimestampListD(timestampList);
-          setJumlahListD(jumlahList);
-        }
-        setData(filteredJson);
-        //console.log(jsonObj);
+          if (!response.ok) throw new Error("Network response was not ok");
+          const json = await response.json();
+          const jsonObj = ConvertToObjects(json.data || json); // Adjust based on structure
+          const filteredJson = FilterRecords(jsonObj, filters);
+          const {userList, kategoriList} = GetDropdownList(filteredJson);
+          setUserListD(userList);
+          setKategoriListD(kategoriList);
+          if(mode === 1){
+            const {timestampList, jumlahList} = GetDataForBarChart(filteredJson);
+            setTimestampListD(timestampList);
+            setJumlahListD(jumlahList);
+          }
+          setData(filteredJson);
+          //console.log(jsonObj);
         }
       } catch (err: any) {
         setError(err.message || "Unknown error");
