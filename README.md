@@ -1,8 +1,3 @@
-Sure! Here's the full `README.md` file content for your **HDM Finance App** project:
-
----
-
-```markdown
 # HDM Finance App
 
 **HDM Finance App** is a simple finance tracking application focused on recording your daily expenses. It provides an easy-to-use interface to add new transactions and view your transaction history.
@@ -89,7 +84,7 @@ function doGet(e) {
 
 ## 🧪 Future Enhancements
 
-- User login
+- Authentication (user-based transaction filtering)
 - Charts & analytics
 - Export to Excel / PDF
 
@@ -98,8 +93,3 @@ function doGet(e) {
 ## 📄 License
 
 This project is open-source and free to use under the MIT License.
-```
-
----
-
-Let me know if you'd like me to generate the actual `.md` file for download or commit it to your GitHub repo.
