@@ -116,7 +116,8 @@ You can then deploy the contents of the `build` folder to any static hosting ser
 
 - Authentication (user-based transaction filtering)  
 - Charts & analytics  
-- Export to Excel / PDF  
+- Export to Excel / PDF
+- Mobile view
 
 ---
 
