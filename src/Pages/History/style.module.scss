@@ -1,0 +1,52 @@
+.main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 5%;
+    
+    .header{
+        height: 20%;
+        min-height: 20%;
+        max-height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: inherit;
+        position: relative;
+
+        .action-left{
+            position: absolute;
+            left: 0;
+            display: flex;
+            gap: 10px;
+
+            .back-btn{
+                cursor: pointer;
+                font-size: larger;
+            }
+        }
+
+        .action-right{
+            position: absolute;
+            right: 0;
+            display: flex;
+            gap: 10px;
+            
+            select, input{
+                font-size: larger;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    .content{
+        .Summary{
+            font-size: x-large;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

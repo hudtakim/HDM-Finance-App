@@ -1,0 +1,2 @@
+export const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdK93n0-xwmKC-6jR4ZX2TEnhm65SODCAuZUghpGBy8YJsyGA/viewform?embedded=true';
+export const spreadsheetsApi = 'https://script.google.com/macros/s/AKfycbxeIwOcb-bP6Dtnnesc96OP9VxXUu9-X4FR4apr9QnB9chE5ItcHWwLXXxSeA2FlokA/exec';
