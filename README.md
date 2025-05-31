@@ -74,6 +74,49 @@ function doGet(e) {
 
 ---
 
+## 💻 Installation
+
+1. Clone the repository to your local machine:  
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
+   ```
+2. Navigate into the project folder:  
+   ```bash
+   cd your-repo
+   ```
+3. Install dependencies using npm or yarn:  
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+---
+
+## 🚀 Deployment
+
+To run the app locally for development:
+
+```bash
+npm start
+# or
+yarn start
+```
+
+This will start the development server, usually accessible at `http://localhost:3000`.
+
+To build the app for production:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+You can then deploy the contents of the `build` folder to any static hosting service like GitHub Pages, Netlify, Vercel, or your own web server.
+
+---
+
 ## 📦 Tech Stack
 
 - React + TypeScript  
@@ -84,12 +127,15 @@ function doGet(e) {
 
 ## 🧪 Future Enhancements
 
-- Authentication (user-based transaction filtering)
-- Charts & analytics
-- Export to Excel / PDF
+- Authentication (user-based transaction filtering)  
+- Charts & analytics  
+- Export to Excel / PDF  
 
 ---
 
 ## 📄 License
 
 This project is open-source and free to use under the MIT License.
+```
+
+---
