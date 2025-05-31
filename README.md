@@ -1,54 +1,61 @@
-# React + TypeScript + Vite
+# HDM Finance App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**HDM Finance App** is a simple and lightweight web application designed to help users **record and track their financial transactions**, with a particular focus on **expense management**.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Add Transaction**: Easily record a new financial transaction.
+* **Transaction History**: View a list of previously recorded transactions.
 
-## Expanding the ESLint configuration
+## 🧠 How It Works
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Unlike typical finance apps that rely on a database, HDM Finance App leverages the power of **Google Forms** and **Google Spreadsheets** to store and retrieve data. This approach makes the app lightweight and easy to deploy without backend infrastructure.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Configuration
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+To get started, follow these steps to set up your configuration:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. **Create a configuration file:**
+
+   Inside your project's `src` folder, create a file named `config.tsx` with the following structure:
+
+   ```tsx
+   export const googleFormUrl = 'https://docs.google.com/forms/d/e/***';
+   export const spreadsheetsApi = 'https://script.google.com/macros/s/***';
+   ```
+
+2. **Set up Google Form:**
+
+   * Go to [Google Forms](https://docs.google.com/forms/u/0/?hl=id).
+   * Create a form to collect transaction data (e.g., date, amount, category, etc.).
+   * Click on the **Send** button, choose the embed (`<>`) option, and copy the **embed HTML URL**.
+   * Use this URL as the value for `googleFormUrl` in your `config.tsx`.
+
+3. **Set up Google Spreadsheet API:**
+
+   * After linking your Google Form to a Google Spreadsheet (via **Responses → Create Spreadsheet**), open the spreadsheet.
+   * Go to **Extensions → Apps Script**.
+   * Write a script to fetch the spreadsheet data and deploy it as a **Web API**.
+   * Copy the deployed web app URL and use it as the value for `spreadsheetsApi` in your `config.tsx`.
+
+---
+
+## 📦 Tech Stack
+
+* **React + TypeScript**
+* **Google Forms** (for data input)
+* **Google Spreadsheets + Apps Script** (for data storage and retrieval)
+
+---
+
+## 📝 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## 🗬️ Feedback
+
+If you encounter any issues or have suggestions for improvement, feel free to open an issue or contribute via pull requests.
