@@ -74,44 +74,31 @@ function doGet(e) {
 
 ---
 
-## 💻 Installation
+Yes, the instructions I gave are generally correct for a **Vite + React + TypeScript** project as well.
 
-1. Clone the repository to your local machine:  
-   ```bash
-   git clone https://github.com/your-username/your-repo.git
-   ```
-2. Navigate into the project folder:  
-   ```bash
-   cd your-repo
-   ```
-3. Install dependencies using npm or yarn:  
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+Just a small tweak to be more specific for Vite:
 
 ---
 
-## 🚀 Deployment
-
-To run the app locally for development:
+### Installation and Development (for Vite + React + TS)
 
 ```bash
-npm start
-# or
-yarn start
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+npm install
+npm run dev
 ```
 
-This will start the development server, usually accessible at `http://localhost:3000`.
-
-To build the app for production:
+* `npm run dev` will start the Vite dev server (usually at `http://localhost:5173/` by default)
+* To build for production:
 
 ```bash
 npm run build
-# or
-yarn build
 ```
+
+The built files will be output to the `dist` folder, which you can deploy to your hosting platform.
+
+---
 
 You can then deploy the contents of the `build` folder to any static hosting service like GitHub Pages, Netlify, Vercel, or your own web server.
 
