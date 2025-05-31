@@ -7,6 +7,15 @@
 * **Add Transaction**: Easily record a new financial transaction.
 * **Transaction History**: View a list of previously recorded transactions.
 
+## 🧾 Data Structure
+
+Currently, the app supports the following fields through the Google Form and Spreadsheet:
+
+* **User**: The person making the transaction.
+* **Jumlah** (Amount): The amount of money involved in the transaction.
+* **Kategori** (Category): The category of the transaction (e.g., Food, Transport, etc.).
+* **Keterangan** (Description): A brief note or description of the transaction.
+
 ## 🧠 How It Works
 
 Unlike typical finance apps that rely on a database, HDM Finance App leverages the power of **Google Forms** and **Google Spreadsheets** to store and retrieve data. This approach makes the app lightweight and easy to deploy without backend infrastructure.
@@ -29,7 +38,7 @@ To get started, follow these steps to set up your configuration:
 2. **Set up Google Form:**
 
    * Go to [Google Forms](https://docs.google.com/forms/u/0/?hl=id).
-   * Create a form to collect transaction data (e.g., date, amount, category, etc.).
+   * Create a form to collect transaction data using the fields: User, Jumlah, Kategori, Keterangan.
    * Click on the **Send** button, choose the embed (`<>`) option, and copy the **embed HTML URL**.
    * Use this URL as the value for `googleFormUrl` in your `config.tsx`.
 
@@ -56,6 +65,6 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
-## 🗬️ Feedback
+## 🛎️ Feedback
 
 If you encounter any issues or have suggestions for improvement, feel free to open an issue or contribute via pull requests.
