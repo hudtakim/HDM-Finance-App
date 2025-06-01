@@ -39,3 +39,17 @@
         }
     }
 }
+
+@media screen and (max-width: 500px) {
+  .main{
+    font-size: 3vw;
+    text-align: center;
+    
+    .menus{
+        .menu{
+            width: 33vw;
+            height: 33vw;
+        }
+    }
+  }
+}

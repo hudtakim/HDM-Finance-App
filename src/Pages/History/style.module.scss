@@ -50,3 +50,26 @@
         }
     }
 }
+
+@media screen and (max-width: 500px) {
+  .main{
+    font-size: 2.2vw;
+
+    .header{
+        flex-direction: column;
+        align-items: flex-start;
+
+        .action-left, .action-right{
+            position: relative;
+            gap: 5px;
+        }
+    }
+
+    .content{
+        .Summary{
+            font-size: 4vw;
+            height: 40px;
+        }
+    }
+  }
+}

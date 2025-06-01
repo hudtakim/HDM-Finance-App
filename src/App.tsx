@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar pageTitle={currentPage}/>
       {GetPageComponent()}
     </>
   )

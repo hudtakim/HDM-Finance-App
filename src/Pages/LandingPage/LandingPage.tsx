@@ -1,3 +1,4 @@
+import { OpenFullscreen } from './Functions';
 import style from './style.module.scss';
 
 interface LandingPageProps {
@@ -15,10 +16,15 @@ function LandingPage({setCurrentPage}:LandingPageProps) {
     },
   ]
 
+  const MenuClick = (row:any) => {
+    if (window.innerWidth < 500) OpenFullscreen();
+    setCurrentPage(row.label);
+  };
+
   const GetMenusComponents = (menus:any) => {
     const list = menus.map((row:any) => {
       return (
-      <div className={style['menu']} onClick={() => setCurrentPage(row.label)} key={row.id}>
+      <div className={style['menu']} onClick={() => MenuClick(row)} key={row.id}>
         <div className={style['icon']}>{row.iconUrl}</div>
         <div className={style['label']}>{row.label}</div>
       </div>

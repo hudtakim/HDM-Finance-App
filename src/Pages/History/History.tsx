@@ -5,7 +5,6 @@ import Dropdown from '../../Components/Dropdown/Dropdown'
 
 import { FormatRupiah, ConvertToObjects, GetTotal, FilterRecords, GetDefaultDateRange, GetDropdownList, GetDataForBarChart } from './Functions'
 import BarChart from './Components/BarChart/BarChart'
-import { spreadsheetsApi } from '../../config'
 
 interface HistoryProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<string>>
@@ -39,9 +38,10 @@ function History({setCurrentPage}: HistoryProps) {
     const fetchData = async () => {
       try {
         setLoading(true);
-        if(filters.startDate && filters.endDate && mode + 1 > 0){
+        const spreadsheetApi = import.meta.env.VITE_SPREADSHEET_API;
+        if(spreadsheetApi && filters.startDate && filters.endDate && mode + 1 > 0){
           console.log('Fetch run');
-          const response = await fetch(spreadsheetsApi);
+          const response = await fetch(spreadsheetApi);
 
           if (!response.ok) throw new Error("Network response was not ok");
           const json = await response.json();
@@ -93,7 +93,7 @@ function History({setCurrentPage}: HistoryProps) {
                 <button onClick={() => setCurrentPage('Landing Page')} className={style['back-btn']}>Back</button>
                 <button onClick={() => setMode(prevMode => (prevMode + 1 < modeList.length ? prevMode + 1 : 0))} className={style['back-btn']}>{modeList[mode]}</button>
             </div>
-            <h2>History</h2>
+            <h2></h2>
             <div className={style['action-right']}>
                 <Dropdown type={'User'} options={userListD} selectedValue={filters.user} onChange={(value) => setFilters({...filters, user: value})}/>
                 <Dropdown type={'Kategori'} options={kategoriListD} selectedValue={filters.kategori} onChange={(value) => setFilters({...filters, kategori: value})}/>
