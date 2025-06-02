@@ -2,6 +2,7 @@
 import style from './style.module.scss'
 import { useState } from 'react';
 import { encryptString, decryptString } from './Functions';
+import { OpenFullscreen } from '../../Functions';
 
 interface LoginProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<string>>
@@ -23,6 +24,7 @@ function Login({setCurrentPage} : LoginProps) {
             const decrypted = await decryptString(encrypted, passKeyInput);
             
             if(secretMsg === decrypted){
+                if (window.innerWidth <= 500) OpenFullscreen();
                 setCurrentPage('Landing Page');
                 localStorage.setItem('hdmfinance-login-status', 'true');
             }
